@@ -8,7 +8,9 @@ The code for real-world experiments via PX4 is also provided.
 
 The recommended hardware configuration will also be provided.
 
-Please note that if you plan to use the bidirectional function of the drone, please pay attention to safety as it is very dangerous!
+For the most difficult part of the paper to deduce manually, we have also provided the code of the symbolic operation software mathmetica to support it
+
+Please **note** that if you plan to use the bidirectional function of the drone, please pay attention to safety as it is very **dangerous!**
 
 This is mainly developed by ___
 
@@ -51,15 +53,11 @@ We have provided the 3D modeling models of both in the Quadrotor Models folder, 
 
 For safety reasons, it is recommended to try a 2-inch aircraft when using the bidirectional function for the first time.
 
-The 5-inch one lose a file because of the github's file limit of 50MB, please download the full model [here](https://drive.google.com/drive/folders/1bn4B6WfJLuRSHyve-8CTmcRvIymV1JRM?usp=sharing)
+The 5-inch one has two compressed files because of the github's file limit of 50MB, you can also download the full model [here](https://drive.google.com/drive/folders/1bn4B6WfJLuRSHyve-8CTmcRvIymV1JRM?usp=sharing)
 
-![Model5inches](D:\Polyu\Paper\RAL2025\github\Quadrotor Models\Model5inches.png)
-
-![Model5inches_real](D:\Polyu\Paper\RAL2025\github\Quadrotor Models\Model5inches_real.jpg)
-
-
-
-![Model2inches_real](D:\Polyu\Paper\RAL2025\github\Quadrotor Models\Model2inches_real.jpg)
+![Model5inches](Fig/Model5inches.png)
+![Model5inches_real](Fig/Model5inches_real.jpg)
+![Model2inches_real](Fig/Model2inches_real.jpg)
 
 
 
@@ -73,7 +71,12 @@ We only provide demo node scripts controlled by offboard. For communication and 
 
 
 
+# Mathmetica
 
+The results of the three code blocks are as follows:
 
+![Model5inches](Fig/Math1.png)
 
+![Model5inches](Fig/Math2.png)
 
+![Model5inches](Fig/Math3.png)
