@@ -1,0 +1,14 @@
+CtrlParaX.T = 0.1;
+CtrlParaX.b = 1/0.0211;
+CtrlParaX.TD.r0 = 12;%增大可以增加响应速度 整体波动
+CtrlParaX.TD.h0 = 0.2;
+CtrlParaX.NLSEF.beta1 = 0.1;%局部波动
+CtrlParaX.NLSEF.beta2 = 0.37;
+CtrlParaX.NLSEF.a1 = 0.75;
+CtrlParaX.NLSEF.a2 = 1.5;
+CtrlParaX.NLSEF.delta = 0.01;
+w0 = 0.2;%调大可以增加相似度 整体波动
+CtrlParaX.ESO.beta01 = 3*w0;
+CtrlParaX.ESO.beta02 = 3*w0*w0;
+CtrlParaX.ESO.beta03 = w0*w0*w0;
+CtrlParaX.ESO.delta = 0.01;

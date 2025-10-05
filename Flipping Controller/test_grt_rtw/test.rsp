@@ -1,0 +1,7 @@
+rt_logging.obj
+rtGetInf.obj
+rtGetNaN.obj
+rt_nonfinite.obj
+test.obj
+test_data.obj
+rt_main.obj

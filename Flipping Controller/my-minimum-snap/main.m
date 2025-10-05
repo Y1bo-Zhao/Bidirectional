@@ -1,0 +1,107 @@
+% 手动设置第一个点为 (0, 0, 0)
+initial_point = [0, 0, 0];
+
+[x, y] = ginput();  % 获取 x, y 坐标
+disp('请点击以确定 Z 坐标');  % 提示用户现在将会选择 Z 坐标
+temp_z = ginput(length(x));  % 获取 z 坐标
+z = temp_z(:, 2);  % 只取第一列，假设用户通过点击 x 轴位置来设置 Z 坐标
+%y = zeros(length(x), 1);
+% 组合 x, y, z 并缩放
+path = [x, y, z] * 100.0;  
+path = [initial_point; path];  % 将初始点添加到 path
+
+
+% n次项
+n_order       = 7;
+% 段数
+n_seg         = size(path,1)-1;
+% 每段参数数目
+n_poly_perseg = (n_order+1);
+
+% 每段轨迹的时间，按距离均匀分配时间，或直接赋值
+ts = zeros(n_seg, 1);
+for i = 1:n_seg
+   ts(i) = 1.0;
+end
+
+% x,y轴分别计算参数
+poly_coef_x = MinimumSnapQPSolver(path(:, 1), ts, n_seg, n_order);
+poly_coef_y = MinimumSnapQPSolver(path(:, 2), ts, n_seg, n_order);
+poly_coef_z = MinimumSnapQPSolver_z(path(:, 3), ts, n_seg, n_order);
+
+
+% display the trajectory
+X_n = [];
+Y_n = [];
+Z_n = [];
+k = 1;
+tstep = 0.1;
+for i=0:n_seg-1
+    % 取计算好的每段参数，此时参数根据阶数由低到高
+    Pxi = poly_coef_x(i*n_poly_perseg +1:(i+1)*n_poly_perseg );
+    % 阶数由高到低排列
+    Pxi = flipud(Pxi);
+    Pyi = poly_coef_y(i*n_poly_perseg +1:(i+1)*n_poly_perseg );
+    Pyi = flipud(Pyi); 
+    Pzi = poly_coef_z(i*n_poly_perseg +1:(i+1)*n_poly_perseg );
+    Pzi = flipud(Pzi); 
+    % 计算坐标
+    for t = 0:tstep:ts(i+1)
+        X_n(k)  = polyval(Pxi, t);
+        Y_n(k)  = polyval(Pyi, t);
+        Z_n(k)  = polyval(Pzi, t);
+        k = k + 1;
+    end
+end
+
+
+%基于bug运行，原X_n等中间会多出来重复点
+indices_to_remove = 11:11:length(X_n)-11;
+X_n(indices_to_remove) = [];
+Y_n(indices_to_remove) = [];
+Z_n(indices_to_remove) = [];
+
+% 假设 X_n, Y_n, Z_n 已经包含了对应的轨迹数据
+plot3(X_n, Y_n, Z_n, 'Color', [0 1.0 0], 'LineWidth', 2);
+hold on;
+scatter3(path(:, 1), path(:, 2), path(:, 3), 'filled'); % 'filled' 让点更明显
+
+% 标题和轴标签
+title('三维轨迹图');
+xlabel('X 坐标');
+ylabel('Y 坐标');
+zlabel('Z 坐标');
+
+% 启用网格以便更好地看到三维效果
+grid on;
+
+% 调整视角以更好地观察三维效果
+view(3); % 或者您可以使用 view(az, el) 来设置具体的观察角度
+
+
+[~, n] = size(X_n);
+Psi = zeros(1,n);
+%matrix = [X_n',Y_n',Z_n',Psi'];
+%time_vector = linspace(0, n-1, n);
+%ref_input_timed = [time_vector', matrix];
+%ref_input_struct = timeseries(ref_input_timed(:, 2:end), ref_input_timed(:, 1));
+
+% 初始化η向量
+Eta = ones(1, length(X_n));
+
+% 计算中点索引
+mid_index = floor(length(X_n) / 2);
+
+% 在中点改变η的值
+Eta(mid_index+1:end) = -1;  % 假设从中点开始无人机反转
+
+% 更新matrix包括η
+matrix = [X_n', Y_n', Z_n', Psi', Eta'];
+time_vector = linspace(0, n-1, n);
+% 重新创建时间序列数据
+ref_input_timed = [time_vector', matrix];
+ref_input_struct = timeseries(ref_input_timed(:, 2:end), ref_input_timed(:, 1));
+
+
+
+

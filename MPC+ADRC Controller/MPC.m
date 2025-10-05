@@ -1,0 +1,26 @@
+ModelParam_c_T = 1.105e-05;    % 螺旋桨拉力系数
+ModelParam_c_M = 1.779e-07*2;  % 螺旋桨力矩系数
+ModelParam_d = 0.225;          % 机体中心和任一电机的距离(m)
+ModelParam_m = 1.4;            % 四旋翼飞行器质量(kg)
+ModelParam_g = 9.8;            % 重力加速度(m/s^2)
+ModelParam_I_xx = 0.0211;      % 四旋翼x轴转动惯量(kg·m^2)
+ModelParam_I_yy = 0.0219;      % 四旋翼y轴转动惯量(kg·m^2)
+ModelParam_I_zz = 0.0366;      % 四旋翼z轴转动惯量(kg·m^2)
+ModelParam_J_RP = 0.0001287;   % 整个电机转子和螺旋桨绕转轴的总转动惯量(kg·m^2)
+ModelInit_Pos_x = 0;
+ModelInit_Pos_y = 0;
+ModelInit_Pos_z = 0;        % 四旋翼初始高度
+ModelInit_Att_x = 0;
+ModelInit_Att_y = 0;
+ModelInit_Att_z = 0;
+C_T = 3.5611;    % 推力系数
+C_M = 1.1366;  % 转矩系数
+p = 1.225;        % 空气密度 (kg/m^3)，这是在海平面，温度为15摄氏度时的空气密度
+D_p = 0.1;        % 螺旋桨直径 (m)，这是一个常见的螺旋桨直径
+f_max = 10;
+tau_max = 0.1;
+
+disturbance_f = 0;
+disturbance_tau_x = 0;
+disturbance_tau_y = 0;
+disturbance_tau_z = 0;

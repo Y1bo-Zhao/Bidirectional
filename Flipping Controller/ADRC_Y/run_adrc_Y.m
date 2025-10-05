@@ -1,0 +1,14 @@
+CtrlParaY.T = 0.1;
+CtrlParaY.b = 1/0.0219;
+CtrlParaY.TD.r0 = 5;
+CtrlParaY.TD.h0 = 0.2;
+CtrlParaY.NLSEF.beta1 = 0.1;
+CtrlParaY.NLSEF.beta2 = 0.37;
+CtrlParaY.NLSEF.a1 = 0.75;
+CtrlParaY.NLSEF.a2 = 1.5;
+CtrlParaY.NLSEF.delta = 0.01;
+w0 = 0.2;
+CtrlParaY.ESO.beta01 = 3*w0;
+CtrlParaY.ESO.beta02 = 3*w0*w0;
+CtrlParaY.ESO.beta03 = w0*w0*w0;
+CtrlParaY.ESO.delta = 0.01;
