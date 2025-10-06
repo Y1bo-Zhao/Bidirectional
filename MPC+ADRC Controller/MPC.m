@@ -20,7 +20,7 @@ D_p = 0.1;        % 螺旋桨直径 (m)，这是一个常见的螺旋桨直径
 f_max = 10;
 tau_max = 0.1;
 
-disturbance_f = 0;
-disturbance_tau_x = 0;
+disturbance_f = 10;
+disturbance_tau_x = 0.1;
 disturbance_tau_y = 0;
 disturbance_tau_z = 0;
