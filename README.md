@@ -28,6 +28,8 @@ The [PX4](https://github.com/PX4/PX4-Autopilot/releases) version is 1.15
 
 For MPC+ADRC Controller
 
+![system1](Fig/system1.png)
+
 ```
 1. Open summary.slx with Simulink
 2. run init.m (remember to cd your file to the MPC+ADRC Controller) to initialize the parameters
@@ -40,6 +42,8 @@ To add disturbance, you can change it in MPC.m
 ```
 
 For Flipping Controller
+
+![system2](Fig/system2.png)
 
 ```
 1. Open main.slx with Simulink
@@ -59,9 +63,24 @@ The 5-inch one has two compressed files because of the github's file limit of 50
 
 ![Model5inches](Fig/Model5inches.png)
 ![Model5inches_real](Fig/Model5inches_real.jpg)
+
+| Module Category                       | Model / Specification | Key Parameters                                 | Description                                                  |
+| :------------------------------------ | --------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| **Flight Control Unit**               | Pixhawk 6C Mini       | 480 MHz 32-bit ARM Cortex-M7                   | Executes attitude estimation and control commands            |
+| **Onboard Computer**                  | Raspberry Pi 5 B      | 2.4 GHz × 4 CPU                                | Runs ROS 2 nodes, PX4 RTPS communication, and perception algorithms |
+| **Motor System**                      | T-MOTOR F60 PRO IV    | Thrust ≈ 1526 g @ 14.94 V KV2550 (5-inch prop) | Generates lift and attitude control torque                   |
+| **Electronic Speed Controller (ESC)** | EMAX formula 45A      | Supports DShot 600 and AM32/Blheli32           | Controls motor speed and direction                           |
+| **Propeller**                         | GEMFAN 513D           | Full symmetry                                  | Supports reverse thrust for aggressive maneuvers or braking  |
+
 ![Model2inches_real](Fig/Model2inches_real.jpg)
 
-
+| Module Category                       | Model / Specification | Key Parameters                                    | Description                                                 |
+| :------------------------------------ | --------------------- | ------------------------------------------------- | ----------------------------------------------------------- |
+| **Flight Control Unit**               | Micoair NxtPX4v2      | STM32H743VIH6@480MHz                              | Executes attitude estimation and control commands           |
+| **Onboard Computer**                  | None                  | None                                              | Temporarily connected to the laptop via a wired connection  |
+| **Motor System**                      | GTS V3 1303plus       | 16.9 V KV6000 (2-inch prop)                       | Generates lift and attitude control torque                  |
+| **Electronic Speed Controller (ESC)** | NeutronRC Mini 55A    | Supports DShot 600 and AM32                       | Controls motor speed and direction                          |
+| **Propeller**                         | GEMFAN 2023           | Reverse rotation has approximately 70% efficiency | Supports reverse thrust for aggressive maneuvers or braking |
 
 # Real-world experiment with PX4
 
