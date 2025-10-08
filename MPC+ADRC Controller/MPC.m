@@ -20,7 +20,21 @@ D_p = 0.1;        % 螺旋桨直径 (m)，这是一个常见的螺旋桨直径
 f_max = 10;
 tau_max = 0.1;
 
-disturbance_f = 10;
-disturbance_tau_x = 0.1;
-disturbance_tau_y = 0;
-disturbance_tau_z = 0;
+%% === 设置当前实验编号 ===
+test_id = 100;   % 你可以每次改这个编号，也可以在外层循环
+
+%% === 读取蒙特卡洛参数表 ===
+T = readtable('MonteCarlo_Test_Table.xlsx');   % 或 .csv
+
+if test_id > height(T)
+    error('测试编号超出范围！表格中只有 %d 行数据。', height(T));
+end
+
+% 取出对应行
+row = T(test_id, :);
+
+% === 将扰动参数赋值到工作区变量 ===
+disturbance_f     = row.disturbance_f;
+disturbance_tau_x = row.tau_x;
+disturbance_tau_y = row.tau_y;
+disturbance_tau_z = row.tau_z;
