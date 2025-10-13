@@ -20,7 +20,7 @@ This is mainly developed by ___
 
 The code was tested with MATLAB R2022b, Python 3.12 and ROS2 humble.
 
-The communication of PX4 and computer is based on [DDS](https://github.com/eProsima/Micro-XRCE-DDS-Agent)
+The communication of PX4 and ROS is based on [DDS](https://github.com/eProsima/Micro-XRCE-DDS-Agent)
 
 The [PX4](https://github.com/PX4/PX4-Autopilot/releases) version is 1.15
 
