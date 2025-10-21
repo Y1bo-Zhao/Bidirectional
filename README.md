@@ -26,6 +26,8 @@ The [PX4](https://github.com/PX4/PX4-Autopilot/releases) version is 1.15
 
 # Usage
 
+Usage tutorial video: https://drive.google.com/drive/folders/1Y6ASiIMQH6AqQtt6wm21OfazETRb6CwF?dmr=1&ec=wgc-drive-globalnav-goto
+
 For MPC+ADRC Controller
 
 ![system1](Fig/system1.png)

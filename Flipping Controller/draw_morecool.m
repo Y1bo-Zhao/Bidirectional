@@ -10,7 +10,7 @@ cfg.showTrail  = true;                 % 是否绘制尾迹
 cfg.showGhost  = false;                % 是否绘制残影
 cfg.ghostCountG = 5;                   % 残影缓冲帧数
 %cfg.snapTimes   = [0, 0.2, 0.3,0.5,1.0,1.5];       % 关键帧时刻（秒）——想加删直接改这里
-cfg.snapTimes   = [0, 0.2, 0.4, 2.0]; 
+cfg.snapTimes   = []; 
 cfg.pauseEach   = 0.10;                % 预览每帧暂停；录视频设 0
 % =======================================================================
 

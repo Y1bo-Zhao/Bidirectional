@@ -34,7 +34,11 @@ end
 row = T(test_id, :);
 
 % === 将扰动参数赋值到工作区变量 ===
-disturbance_f     = row.disturbance_f;
-disturbance_tau_x = row.tau_x;
-disturbance_tau_y = row.tau_y;
-disturbance_tau_z = row.tau_z;
+%disturbance_f     = row.disturbance_f;
+%disturbance_tau_x = row.tau_x;
+%disturbance_tau_y = row.tau_y;
+%disturbance_tau_z = row.tau_z;
+disturbance_f     = 10;
+disturbance_tau_x = 0.1;
+disturbance_tau_y = 0;
+disturbance_tau_z = 0;
