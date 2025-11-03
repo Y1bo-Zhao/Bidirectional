@@ -14,7 +14,7 @@ Please **note** that if you plan to use the bidirectional function of the drone,
 
 This is mainly developed by ___
 
-![Demo](Fig/demo.gif)
+![Demo](Fig/demo.gif)![Demo](Fig/pre1.gif)
 
 # Installation
 
