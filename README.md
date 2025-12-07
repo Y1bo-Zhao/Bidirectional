@@ -1,6 +1,6 @@
 # Bidirectional Thrust Control for Quadrotor Safety
 
-This repository is the companion code for this paper, which has been submitted to RA-L. MATLAB and Simulink are used as the simulation. 
+This repository is the companion code for this paper, which has been accepted by RA-L. MATLAB and Simulink are used as the simulation. 
 
 MATLAB part contains two controllers, a full quadrotor model and a minimum snap planner, along with many small plugins.
 
@@ -12,7 +12,7 @@ For the most difficult part of the paper to deduce manually, we have also provid
 
 Please **note** that if you plan to use the bidirectional function of the drone, please pay attention to safety as it is very **dangerous!**
 
-This is mainly developed by ___
+This is mainly developed by ZHAO Yibo (1285453493@qq.com)
 
 ![Demo](Fig/demo.gif)![Demo](Fig/pre1.gif)
 
